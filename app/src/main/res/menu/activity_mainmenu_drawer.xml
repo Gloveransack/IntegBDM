@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Sales Process">
+        <menu>
+            <item
+                android:id="@+id/sales_professional"
+                android:icon="@android:drawable/btn_star"
+                android:title="A Sales Professional" />
+            <item
+                android:id="@+id/sales_assessment"
+                android:icon="@android:drawable/btn_star"
+                android:title="Sales Assessment" />
+        </menu>
+    </item>
+    <item android:title="Admin Process">
+        <menu>
+            <item
+                android:id="@+id/hr"
+                android:icon="@android:drawable/btn_star"
+                android:title="HR" />
+            <item
+                android:id="@+id/terms_of_trade"
+                android:icon="@android:drawable/btn_star"
+                android:title="Terms of Trade" />
+            <item
+                android:id="@+id/website"
+                android:icon="@android:drawable/btn_star"
+                android:title="Website" />
+            <item
+                android:id="@+id/insurance"
+                android:icon="@android:drawable/btn_star"
+                android:title="Insurance" />
+            <item
+                android:id="@+id/contracts"
+                android:icon="@android:drawable/btn_star"
+                android:title="Contracts" />
+        </menu>
+    </item>
+    <item android:title="Finance Process">
+        <menu>
+            <item
+                android:id="@+id/sales_expenses"
+                android:icon="@android:drawable/btn_star"
+                android:title="Sales Expenses" />
+            <item
+                android:id="@+id/costings"
+                android:icon="@android:drawable/btn_star"
+                android:title="Costing" />
+        </menu>
+    </item>
+    <item android:title="Design Process">
+        <menu>
+            <item
+                android:id="@+id/catalogue"
+                android:icon="@android:drawable/btn_star"
+                android:title="Catalogue" />
+            <item
+                android:id="@+id/drawings"
+                android:icon="@android:drawable/btn_star"
+                android:title="Drawings" />
+        </menu>
+    </item>
+
+    <item android:title="Operations Process">
+        <menu>
+            <item
+                android:id="@+id/purchasing"
+                android:icon="@android:drawable/btn_star"
+                android:title="Purchasing" />
+            <item
+                android:id="@+id/logistics"
+                android:icon="@android:drawable/btn_star"
+                android:title="Logistics" />
+            <item
+                android:id="@+id/inventory"
+                android:icon="@android:drawable/btn_star"
+                android:title="Inventory" />
+        </menu>
+    </item>
+    <item android:title="Integ International Ltd">
+        <menu>
+            <item
+                android:id="@+id/integ_brand"
+                android:icon="@android:drawable/btn_star"
+                android:title="Integ Brand" />
+            <item
+                android:id="@+id/integ_products"
+                android:icon="@android:drawable/btn_star"
+                android:title="Products" />
+        </menu>
+    </item>
+    <item android:title="Research">
+        <menu>
+            <item
+                android:id="@+id/ergonomics"
+                android:icon="@android:drawable/btn_star"
+                android:title="Ergonomics" />
+            <item
+                android:id="@+id/productivity"
+                android:icon="@android:drawable/btn_star"
+                android:title="Productivity" />
+            <item
+                android:id="@+id/workspacehw"
+                android:icon="@android:drawable/btn_star"
+                android:title="Workspace Health and Wellbeing" />
+            <item
+                android:id="@+id/alan_hedge"
+                android:icon="@android:drawable/btn_star"
+                android:title="Alan Hedge, Cornell Uni NY" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/photos"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Photos" />
+
+</menu>

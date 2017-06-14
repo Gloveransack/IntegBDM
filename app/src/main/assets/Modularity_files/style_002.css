@@ -1,0 +1,71 @@
+/*   
+Theme Name: Modtec Child theme
+Theme URI: 
+Description: Modtec theme is unique and highly interactive WordPress theme.
+Author: ArtstudioWorks
+License: GNU General Public License version 3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Template: richer
+Version: 1.0
+Tags: white, black, green, flexible-width, fixed-width, custom-colors, custom-background, theme-options, translation-ready
+*/
+
+@import url("../richer/style.css"); 		/* CSS Reset + Basic WordPress Styles */
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+.product-title a {
+	 display: block;
+    font-size: 15px;
+    font-weight: 600;
+    height: 40px;
+    white-space: normal;
+    width: 95%;
+}
+
+  
+.post-type-archive-product .products li {
+	min-height: 433px;
+}
+
+.content-area-info p.p-custom {
+	margin-left: 0;
+	margin-top: 18px;
+	
+	width: auto;
+	float: right;
+}
+
+.content-area-info {
+	overflow: hidden;
+}
+.s-cart {
+	float: right;
+	text-align: right;
+    margin-top: 20px !important;
+}
+
+.p-cart-icon {
+	margin-left: 0;
+	text-align: left;
+}
+
+#navigation .sub-menu li a, #navigation .sub-menu li .sub-menu li a, #navigation .sub-menu li .sub-menu li .sub-menu li a {
+	line-height: 1.5 !important;
+	padding: 10px 15px !important;
+}
+
+#loginform_2 #wp-signup-2,
+#loginform_2 #wp-submit-2 {
+	width: 80px !important;
+}
+div.userpro-input label.userpro-checkbox.hide-field {
+  display:none !important;
+  visibility:hidden;
+  }
+
+label.userpro-checkbox.full { padding-left: 30px !important }
+
+.cls {
+	clear: both;
+}
