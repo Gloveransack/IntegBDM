@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
     ViewFlipper VF;
 
     /** Called when the activity is first created. */
-//giiiit
+//gittt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        //drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         CopyReadAssets();
@@ -112,8 +113,8 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
     {
         AssetManager assetManager = getAssets();
 
-        InputStream in = null;
-        OutputStream out = null;
+        InputStream in;
+        OutputStream out;
         File file = new File(getFilesDir(), "catalogue.pdf");
         try
         {
@@ -122,10 +123,10 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
             copyFile(in, out);
             in.close();
-            in = null;
+           // in = null;
             out.flush();
             out.close();
-            out = null;
+           // out = null;
         } catch (Exception e)
         {
             Log.e("tag", e.getMessage());
@@ -171,7 +172,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -182,17 +183,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
         } else if (id == R.id.ergonomics) {
             openErgonomics();
-            /*final Intent intent = new Intent(Intent.ACTION_MAIN, null);
-
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-            final ComponentName cn = new ComponentName("com.android.settings", "com.android.settings.fuelgauge.PowerUsageSummary");
-
-            intent.setComponent(cn);
-
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            startActivity( intent);*/
 
         } else if (id == R.id.productivity) {
 
@@ -282,7 +272,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         Uri uri = Uri.parse("https://drive.google.com/drive/folders/0B-xPMBK6AjfXVjJ1X0w0YnptOWc?usp=sharing");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
-;
+
     }
 
     private void openErgonomics() {
