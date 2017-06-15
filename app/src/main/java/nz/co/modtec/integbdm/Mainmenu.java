@@ -34,7 +34,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
     ViewFlipper VF;
 
     /** Called when the activity is first created. */
-
+//giiiit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
