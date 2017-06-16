@@ -6,4 +6,43 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_modtec_website">ModtecWebsite</string>
+
+    <string-array name="clamp">
+        <item>Clamp (Choose one)</item>
+        <item>Split clamp (Desk edge clamp)</item>
+        <item>Grommet clamp (Through desk clamp)</item>
+    </string-array>
+
+    <string-array name="pole">
+        <item>Pole (Choose one)</item>
+        <item>Ar-ray</item>
+        <item>Apollo4</item>
+    </string-array>
+
+    <string-array name="arms">
+        <item>Arm configuration (Choose one)</item>
+        <item>Single</item>
+        <item>Dual</item>
+        <item>Single + Laptop</item>
+    </string-array>
+
+    <string-array name="accessories">
+        <item>Accessories (If required)</item>
+        <item>Traemate (Laptop tray)</item>
+        <item>Tabmate (Tablet tray - Can be used with Laptop also)</item>
+        <item>Blade</item>
+    </string-array>
+
+    <string-array name="colour">
+        <item>Colour (Choose one)</item>
+        <item>Silver</item>
+        <item>Black</item>
+        <item>White</item>
+    </string-array>
+
+
+
+
+
+
 </resources>

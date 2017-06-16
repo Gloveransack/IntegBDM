@@ -35,7 +35,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
     ViewFlipper VF;
 
     /** Called when the activity is first created. */
-//gittt
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,7 +138,11 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else if (VF.getDisplayedChild() != 0) {
+            VF.setDisplayedChild(0);
+        }
+        else {
             super.onBackPressed();
         }
     }
@@ -162,11 +166,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
             VF.setDisplayedChild(0);
         }
 
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-        //    return true;
-       // }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -187,7 +186,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.productivity) {
 
         } else if (id == R.id.workspacehw) {
-            Intent intent = new Intent(this, Configurator.class);
+            Intent intent = new Intent(this, Configurator_spinner.class);
             startActivity(intent);
 
         } else if (id == R.id.alan_hedge) {
@@ -236,9 +235,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
             gridview.setAdapter(new ImageAdapter(this, list));
 
             VF.setDisplayedChild(3);
-
-            //Intent intent = new Intent(this, Photo_gallery.class);
-           // startActivity(intent);
 
         } else if (id == R.id.sales_professional) {
 
