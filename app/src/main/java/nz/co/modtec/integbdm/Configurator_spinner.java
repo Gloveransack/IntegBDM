@@ -10,4 +10,5 @@ public class Configurator_spinner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configurator_spinner);
     }
+  //  spinner clamp = new spinner(clamp)
 }
