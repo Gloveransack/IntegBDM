@@ -9,52 +9,52 @@
 
     <string-array name="clamp">
         <item>No Clamp</item>
-        <item>Split clamp (Desk edge clamp) - Silver</item>
-        <item>Grommet clamp (Through desk clamp) - Silver</item>
+        <item>Split clamp - Silver</item>
         <item>Split clamp - White</item>
-        <item>Grommet clamp - White</item>
         <item>Split clamp - Black</item>
+        <item>Grommet clamp - Silver</item>
+        <item>Grommet clamp - White</item>
         <item>Grommet clamp - Black</item>
     </string-array>
 
     <string-array name="pole">
         <item>No Pole</item>
         <item>Ar-ray - Silver</item>
-        <item>Apollo4 - Silver</item>
         <item>Ar-ray - White</item>
-        <item>Apollo4 - White</item>
         <item>Ar-ray - Black</item>
+        <item>Apollo4 - Silver</item>
+        <item>Apollo4 - White</item>
         <item>Apollo4 - Black</item>
     </string-array>
 
     <string-array name="arms">
         <item>No Arm</item>
         <item>Ar-ray Single - Silver</item>
-        <item>Ar-ray Dual - Silver</item>
         <item>Ar-ray Single - White</item>
-        <item>Ar-ray Dual - White</item>
         <item>Ar-ray Single - Black</item>
+        <item>Ar-ray Dual - Silver</item>
+        <item>Ar-ray Dual - White</item>
         <item>Ar-ray Dual - Black</item>
         <item>Apollo Single - Silver</item>
-        <item>Apollo Dual - Silver</item>
         <item>Apollo Single - White</item>
-        <item>Apollo Dual - White</item>
         <item>Apollo Single - Black</item>
+        <item>Apollo Dual - Silver</item>
+        <item>Apollo Dual - White</item>
         <item>Apollo Dual - Black</item>
     </string-array>
 
     <string-array name="accessories">
         <item>No accessories</item>
         <item>Blade (Apollo only) - Silver</item>
-        <item>Blade Dual (Apollo only) - Silver</item>
         <item>Blade (Apollo only) - White</item>
-        <item>Blade Dual (Apollo only) - White</item>
         <item>Blade (Apollo only) - Black</item>
+        <item>Blade Dual (Apollo only) - Silver</item>
+        <item>Blade Dual (Apollo only) - White</item>
         <item>Blade Dual (Apollo only) - Black</item>
-        <item>Traemate (Laptop tray) - Silver</item>
+        <item>Traemate - Silver</item>
         <item>Traemate - White</item>
         <item>Traemate - Black</item>
-        <item>Tabmate (Tablet tray) - Silver</item>
+        <item>Tabmate - Silver</item>
         <item>Tabmate - White</item>
         <item>Tabmate - Black</item>
         <item>Blade + Traemate (Apollo only) - Silver</item>
