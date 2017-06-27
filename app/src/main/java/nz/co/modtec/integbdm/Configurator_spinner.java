@@ -2,13 +2,355 @@ package nz.co.modtec.integbdm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class Configurator_spinner extends AppCompatActivity {
+public class Configurator_spinner extends AppCompatActivity{
+
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configurator_spinner);
+
+        Spinner clamp_spin = (Spinner) findViewById(R.id.Clamp);
+        Spinner arm_spin = (Spinner) findViewById(R.id.Arms);
+        Spinner pole_spin = (Spinner) findViewById(R.id.Pole);
+        Spinner acc_spin = (Spinner) findViewById(R.id.Accessories);
+
+        clamp_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                ImageView clampimage = (ImageView) findViewById(R.id.clamp_image);
+                String clamp = parent.getItemAtPosition(position).toString();
+                if (clamp.equals("Split clamp (Desk edge clamp) - Silver")) {
+                    clampimage.setImageResource(R.drawable.sc_s);
+                    clampimage.setTag ("SC-S");
+                    Toast.makeText(getApplicationContext(), "PCPD9-SA2-02", Toast.LENGTH_LONG).show();
+                } else if (clamp.equals("Grommet clamp (Through desk clamp) - Silver")) {
+                    clampimage.setImageResource(R.drawable.kg_s);
+                    clampimage.setTag ("KG-S");
+                    Toast.makeText(getApplicationContext(), "PCPG2-SW0-01", Toast.LENGTH_LONG).show();
+                } else if (clamp.equals("Split clamp - White")) {
+                    clampimage.setImageResource(R.drawable.sc_w);
+                    clampimage.setTag ("SC-W");
+                    Toast.makeText(getApplicationContext(), "PCPD9-WA2-02", Toast.LENGTH_LONG).show();
+                } else if (clamp.equals("Grommet clamp - White")) {
+                    clampimage.setImageResource(R.drawable.kg_w);
+                    clampimage.setTag ("KG-W");
+                    Toast.makeText(getApplicationContext(), "PCPG2-WW0-01", Toast.LENGTH_LONG).show();
+                } else if (clamp.equals("Split clamp - Black")) {
+                    clampimage.setImageResource(R.drawable.sc_b);
+                    clampimage.setTag ("SC-B");
+                    Toast.makeText(getApplicationContext(), "PCPD9-BA2-02", Toast.LENGTH_LONG).show();
+                } else if (clamp.equals("Grommet clamp - Black")) {
+                    clampimage.setImageResource(R.drawable.kg_b);
+                    clampimage.setTag ("KG-B");
+                    Toast.makeText(getApplicationContext(), "PCPG2-BW0-01", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    clampimage.setImageResource(android.R.color.transparent);
+                }
+                productcode();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        arm_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                ImageView armsimage = (ImageView) findViewById(R.id.arms_image);
+                ImageView leftarmsimage = (ImageView) findViewById(R.id.left_arms_image);
+                armsimage.setImageResource(android.R.color.transparent);
+                leftarmsimage.setImageResource(android.R.color.transparent);
+
+                ImageView accimage = (ImageView) findViewById(R.id.acc_image);
+                ImageView leftaccimage = (ImageView) findViewById(R.id.left_acc_image);
+                accimage.setImageResource(android.R.color.transparent);
+                leftaccimage.setImageResource(android.R.color.transparent);
+
+                String arms = parent.getItemAtPosition(position).toString();
+
+                if (arms.equals("Ar-ray Single - Silver")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.arr_s);
+                    armsimage.setTag("ARS-S");
+                    Toast.makeText(getApplicationContext(), "RAYA2-SUR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Ar-ray Dual - Silver")) {
+                    armsimage.setImageResource(R.drawable.arr_s);
+                    leftarmsimage.setImageResource(R.drawable.arl_s);
+                    armsimage.setTag("ARD-S");
+                    Toast.makeText(getApplicationContext(), "RAYA2-SUR-20 + RAYB2-SLR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Ar-ray Single - White")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.arr_w);
+                    armsimage.setTag("ARS-W");
+                    Toast.makeText(getApplicationContext(), "RAYA2-WUR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Ar-ray Dual - White")) {
+                    armsimage.setImageResource(R.drawable.arr_w);
+                    leftarmsimage.setImageResource(R.drawable.arl_w);
+                    armsimage.setTag("ARD-W");
+                    Toast.makeText(getApplicationContext(), "RAYA2-WUR-20 + RAYB2-WLR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Ar-ray Single - Black")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.arr_b);
+                    armsimage.setTag("ARS-B");
+                    Toast.makeText(getApplicationContext(), "RAYA2-BUR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Ar-ray Dual - Black")) {
+                    armsimage.setImageResource(R.drawable.arr_b);
+                    leftarmsimage.setImageResource(R.drawable.arl_b);
+                    armsimage.setTag("ARD-B");
+                    Toast.makeText(getApplicationContext(), "RAYA2-BUR-20 + RAYB2-BLR-20", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Single - Silver")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.mr_s);
+                    armsimage.setTag("A4S-S");
+                    Toast.makeText(getApplicationContext(), "MAKP2-SAR-15", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Dual - Silver")) {
+                    armsimage.setImageResource(R.drawable.mr_s);
+                    leftarmsimage.setImageResource(R.drawable.ml_s);
+                    armsimage.setTag("A4D-S");
+                    Toast.makeText(getApplicationContext(), "2 x MAKP2-SAR-15", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Single - White")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.mr_w);
+                    armsimage.setTag("A4S-W");
+                    Toast.makeText(getApplicationContext(), "MAKP2-WAR-15", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Dual - White")) {
+                    armsimage.setImageResource(R.drawable.mr_w);
+                    leftarmsimage.setImageResource(R.drawable.ml_w);
+                    armsimage.setTag("A4D-W");
+                    Toast.makeText(getApplicationContext(), "2 x MAKP2-WAR-15", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Single - Black")) {
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                    armsimage.setImageResource(R.drawable.mr_b);
+                    armsimage.setTag("A4S-B");
+                    Toast.makeText(getApplicationContext(), "MAKP2-BAR-15", Toast.LENGTH_LONG).show();
+                } else if (arms.equals("Apollo Dual - Black")) {
+                    armsimage.setImageResource(R.drawable.mr_b);
+                    leftarmsimage.setImageResource(R.drawable.ml_b);
+                    armsimage.setTag("A4D-B");
+                    Toast.makeText(getApplicationContext(), "2 x MAKP2-BAR-15", Toast.LENGTH_LONG).show();
+                } else {
+                    armsimage.setImageResource(android.R.color.transparent);
+                    leftarmsimage.setImageResource(android.R.color.transparent);
+                }
+                productcode();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        pole_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                ImageView poleimage = (ImageView) findViewById(R.id.pole_image);
+                poleimage.setImageResource(android.R.color.transparent);
+
+                String pole = parent.getItemAtPosition(position).toString();
+
+                if (pole.equals("Ar-ray - Silver")) {
+                    poleimage.setImageResource(R.drawable.ar_s);
+                    poleimage.setTag ("AR-S");
+                    Toast.makeText(getApplicationContext(), "PPAR4-SW0-00", Toast.LENGTH_LONG).show();
+                } else if (pole.equals("Apollo4 - Silver")) {
+                    poleimage.setImageResource(R.drawable.ap_s);
+                    poleimage.setTag ("A4-S");
+                    Toast.makeText(getApplicationContext(), "PPCD4-SW0-02", Toast.LENGTH_LONG).show();
+                } else if (pole.equals("Ar-ray - White")) {
+                    poleimage.setImageResource(R.drawable.ar_w);
+                    poleimage.setTag ("AR-W");
+                    Toast.makeText(getApplicationContext(), "PPAR4-WW0-00", Toast.LENGTH_LONG).show();
+                } else if (pole.equals("Apollo4 - White")) {
+                    poleimage.setImageResource(R.drawable.ap_w);
+                    poleimage.setTag ("A4-W");
+                    Toast.makeText(getApplicationContext(), "PPCD4-WW0-02", Toast.LENGTH_LONG).show();
+                } else if (pole.equals("Ar-ray - Black")) {
+                    poleimage.setImageResource(R.drawable.ar_b);
+                    poleimage.setTag ("AR-B");
+                    Toast.makeText(getApplicationContext(), "PPAR4-BW0-00", Toast.LENGTH_LONG).show();
+                } else if (pole.equals("Apollo4 - Black")) {
+                    poleimage.setImageResource(R.drawable.ap_b);
+                    poleimage.setTag ("A4-B");
+                    Toast.makeText(getApplicationContext(), "PPCD4-BW0-00", Toast.LENGTH_LONG).show();
+                } else {
+                    poleimage.setImageResource(android.R.color.transparent);
+                }
+                productcode();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
+        acc_spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+                {
+                    ImageView accimage = (ImageView) findViewById(R.id.acc_image);
+                    ImageView leftaccimage = (ImageView) findViewById(R.id.left_acc_image);
+                    accimage.setImageResource(android.R.color.transparent);
+                    leftaccimage.setImageResource(android.R.color.transparent);
+
+                    ImageView poleimage = (ImageView) findViewById(R.id.pole_image);
+                    String whichone = String.valueOf(poleimage.getTag());
+
+                    ImageView armsimage = (ImageView) findViewById(R.id.arms_image);
+                    ImageView leftarmsimage = (ImageView) findViewById(R.id.left_arms_image);
+                    armsimage.setImageResource(android.R.color.transparent);
+
+                    String acc = parent.getItemAtPosition(position).toString();
+                    if (acc.equals("Blade (Apollo only) - Silver")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_s);
+                        accimage.setTag ("BLS-S");
+                        Toast.makeText(getApplicationContext(), "MAKP2-SAR-10QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade Dual - Silver")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_s);
+                        leftaccimage.setImageResource(R.drawable.bl_s);
+                        accimage.setTag ("BLD-S");
+                        Toast.makeText(getApplicationContext(), "2 x MAKP2-SAR-15QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade (Apollo only) - White")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_w);
+                        accimage.setTag ("BLS-W");
+                        Toast.makeText(getApplicationContext(), "MAKP2-WAR-15QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade Dual (Apollo only) - White")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_w);
+                        leftaccimage.setImageResource(R.drawable.bl_w);
+                        accimage.setTag ("BLD-W");
+                        Toast.makeText(getApplicationContext(), "2 x MAKP2-WAR-15QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade (Apollo only) - Black")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_b);
+                        accimage.setTag ("BLS-B");
+                        Toast.makeText(getApplicationContext(), "MAKP2-BAR-15QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade Dual (Apollo only) - Black")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.br_b);
+                        leftaccimage.setImageResource(R.drawable.bl_b);
+                        accimage.setTag ("BLD-B");
+                        Toast.makeText(getApplicationContext(), "2 x MAKP2-BAR-15QB", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Traemate (Laptop tray) - Silver")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        accimage.setTag("TR-S");
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.mlap_s);
+                        } else {
+                            accimage.setImageResource(R.drawable.arlap_s);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-SAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Traemate - White")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.mlap_w);
+                        } else {
+                            accimage.setImageResource(R.drawable.arlap_w);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-WAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Traemate - Black")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.mlap_b);
+                        } else {
+                            accimage.setImageResource(R.drawable.arlap_b);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-BAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Tabmate (Tablet tray) - Silver")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.tab_s);
+                        } else {
+                            accimage.setImageResource(R.drawable.taba_s);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-SAT-00", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Tabmate - White")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.tab_w);
+                        } else {
+                            accimage.setImageResource(R.drawable.taba_w);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-WAT-00", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Tabmate - Black")) {
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                        if (whichone == "A4-S" || whichone == "A4-W" || whichone == "A4-B") {
+                            accimage.setImageResource(R.drawable.tab_b);
+                        } else {
+                            accimage.setImageResource(R.drawable.taba_b);
+                        }
+                        Toast.makeText(getApplicationContext(), "PXTK1-SAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Traemate (Apollo only) - Silver")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.mlap_s);
+                        leftaccimage.setImageResource(R.drawable.bl_s);
+                        Toast.makeText(getApplicationContext(), "MAKP2-SAR-15QB + PXTK1-SAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Traemate (Apollo only) - White")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.mlap_w);
+                        leftaccimage.setImageResource(R.drawable.bl_w);
+                        Toast.makeText(getApplicationContext(), "MAKP2-WAR-15QB + PXTK1-WAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Traemate (Apollo only) - Black")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.mlap_b);
+                        leftaccimage.setImageResource(R.drawable.bl_b);
+                        Toast.makeText(getApplicationContext(), "MAKP2-BAR-15QB + PXTK1-BAS-02", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Tabmate (Apollo only) - Silver")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.tab_s);
+                        leftaccimage.setImageResource(R.drawable.bl_s);
+                        Toast.makeText(getApplicationContext(), "MAKP2-SAR-15QB + PXTK1-SAT-00", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Tabmate (Apollo only) - White")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.tab_w);
+                        leftaccimage.setImageResource(R.drawable.bl_w);
+                        Toast.makeText(getApplicationContext(), "MAKP2-WAR-15QB + PXTK1-WAT-00", Toast.LENGTH_LONG).show();
+                    } else if (acc.equals("Blade + Tabmate (Apollo only) - Black")) {
+                        leftarmsimage.setImageResource(android.R.color.transparent);
+                        accimage.setImageResource(R.drawable.tab_b);
+                        leftaccimage.setImageResource(R.drawable.bl_b);
+                        Toast.makeText(getApplicationContext(), "MAKP2-BAR-15QB + PXTK1-BAT-00", Toast.LENGTH_LONG).show();
+                    } else {
+                        accimage.setImageResource(android.R.color.transparent);
+                        leftaccimage.setImageResource(android.R.color.transparent);
+                    }
+                    productcode();
+                }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
     }
-  //  spinner clamp = new spinner(clamp)
+
+    void productcode() {
+        TextView PC = (TextView) findViewById(R.id.PC);
+
+        ImageView clampimage = (ImageView) findViewById(R.id.clamp_image);
+        String clamp = String.valueOf(clampimage.getTag());
+
+        ImageView poleimage = (ImageView) findViewById(R.id.pole_image);
+        String pole = String.valueOf(poleimage.getTag());
+
+        ImageView armsimage = (ImageView) findViewById(R.id.arms_image);
+        String arms = String.valueOf(armsimage.getTag());
+
+
+        if (clamp == "SC-S" && pole == "A4-S" && arms == "A4S-S") {
+            PC.setText("MA4-4S2D");
+        }
+
+    }
 }
+
+

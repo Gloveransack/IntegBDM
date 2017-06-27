@@ -4,68 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nz.co.modtec.integbdm.Configurator_spinner">
+    tools:context="nz.co.modtec.integbdm.Configurator_spinner"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/PC"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Combined Product Code (Note: Ar-ray always uses black clamp)"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginTop="8dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent">
 
-        <Spinner
-            android:id="@+id/Clamp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/clamp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="96dp" />
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            tools:layout_editor_absoluteX="8dp">
 
-        <Spinner
-            android:id="@+id/Arms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/arms"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="51dp" />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Clamp" />
 
-        <Spinner
-            android:id="@+id/Pole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/pole"
-            tools:layout_editor_absoluteX="208dp"
-            tools:layout_editor_absoluteY="46dp" />
+            <Spinner
+                android:id="@+id/Clamp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/clamp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="96dp" />
 
-        <Spinner
-            android:id="@+id/Accessories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/accessories"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="354dp" />
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pole" />
 
-        <Spinner
-            android:id="@+id/Colour"
+            <Spinner
+                android:id="@+id/Pole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/pole"
+                tools:layout_editor_absoluteX="208dp"
+                tools:layout_editor_absoluteY="46dp" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Arm" />
+
+            <Spinner
+                android:id="@+id/Arms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/arms"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="51dp" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Accessories" />
+
+            <Spinner
+                android:id="@+id/Accessories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/accessories" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintDimensionRatio="0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PC">
+
+        <ImageView
+            android:id="@+id/clamp_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:entries="@array/colour"
-            tools:layout_editor_absoluteX="208dp"
-            tools:layout_editor_absoluteY="46dp" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/pole_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/arms_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/left_arms_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/acc_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/left_acc_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

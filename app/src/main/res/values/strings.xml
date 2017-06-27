@@ -8,41 +8,61 @@
     <string name="title_activity_modtec_website">ModtecWebsite</string>
 
     <string-array name="clamp">
-        <item>Clamp (Choose one)</item>
-        <item>Split clamp (Desk edge clamp)</item>
-        <item>Grommet clamp (Through desk clamp)</item>
+        <item>No Clamp</item>
+        <item>Split clamp (Desk edge clamp) - Silver</item>
+        <item>Grommet clamp (Through desk clamp) - Silver</item>
+        <item>Split clamp - White</item>
+        <item>Grommet clamp - White</item>
+        <item>Split clamp - Black</item>
+        <item>Grommet clamp - Black</item>
     </string-array>
 
     <string-array name="pole">
-        <item>Pole (Choose one)</item>
-        <item>Ar-ray</item>
-        <item>Apollo4</item>
+        <item>No Pole</item>
+        <item>Ar-ray - Silver</item>
+        <item>Apollo4 - Silver</item>
+        <item>Ar-ray - White</item>
+        <item>Apollo4 - White</item>
+        <item>Ar-ray - Black</item>
+        <item>Apollo4 - Black</item>
     </string-array>
 
     <string-array name="arms">
-        <item>Arm configuration (Choose one)</item>
-        <item>Single</item>
-        <item>Dual</item>
-        <item>Single + Laptop</item>
+        <item>No Arm</item>
+        <item>Ar-ray Single - Silver</item>
+        <item>Ar-ray Dual - Silver</item>
+        <item>Ar-ray Single - White</item>
+        <item>Ar-ray Dual - White</item>
+        <item>Ar-ray Single - Black</item>
+        <item>Ar-ray Dual - Black</item>
+        <item>Apollo Single - Silver</item>
+        <item>Apollo Dual - Silver</item>
+        <item>Apollo Single - White</item>
+        <item>Apollo Dual - White</item>
+        <item>Apollo Single - Black</item>
+        <item>Apollo Dual - Black</item>
     </string-array>
 
     <string-array name="accessories">
-        <item>Accessories (If required)</item>
-        <item>Traemate (Laptop tray)</item>
-        <item>Tabmate (Tablet tray - Can be used with Laptop also)</item>
-        <item>Blade</item>
+        <item>No accessories</item>
+        <item>Blade (Apollo only) - Silver</item>
+        <item>Blade Dual (Apollo only) - Silver</item>
+        <item>Blade (Apollo only) - White</item>
+        <item>Blade Dual (Apollo only) - White</item>
+        <item>Blade (Apollo only) - Black</item>
+        <item>Blade Dual (Apollo only) - Black</item>
+        <item>Traemate (Laptop tray) - Silver</item>
+        <item>Traemate - White</item>
+        <item>Traemate - Black</item>
+        <item>Tabmate (Tablet tray) - Silver</item>
+        <item>Tabmate - White</item>
+        <item>Tabmate - Black</item>
+        <item>Blade + Traemate (Apollo only) - Silver</item>
+        <item>Blade + Traemate (Apollo only) - White</item>
+        <item>Blade + Traemate (Apollo only) - Black</item>
+        <item>Blade + Tabmate (Apollo only) - Silver</item>
+        <item>Blade + Tabmate (Apollo only) - White</item>
+        <item>Blade + Tabmate (Apollo only) - Black</item>
     </string-array>
-
-    <string-array name="colour">
-        <item>Colour (Choose one)</item>
-        <item>Silver</item>
-        <item>Black</item>
-        <item>White</item>
-    </string-array>
-
-
-
-
-
 
 </resources>

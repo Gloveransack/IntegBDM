@@ -123,10 +123,10 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
             copyFile(in, out);
             in.close();
-           // in = null;
+            //in = null;
             out.flush();
             out.close();
-           // out = null;
+            //out = null;
         } catch (Exception e)
         {
             Log.e("tag", e.getMessage());
