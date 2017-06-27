@@ -358,7 +358,7 @@ public class Configurator_spinner extends AppCompatActivity{
         String arms = String.valueOf(armsimage.getTag());
 
         ImageView accimage = (ImageView) findViewById(R.id.acc_image);
-        String acc = String.valueOf(armsimage.getTag());
+        String acc = String.valueOf(accimage.getTag());
 
 
         //Apollo with laptop tray
