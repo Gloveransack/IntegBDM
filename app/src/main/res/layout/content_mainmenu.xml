@@ -12,11 +12,13 @@
 
     <ViewFlipper
         android:id="@+id/ViewFlipper01"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="7dp">
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent">
         <!--adding views to ViewFlipper-->
         <!--Starts at (0), then (1), then (2) and so on-->
         <ScrollView
@@ -30,37 +32,108 @@
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/integ_bdm_header" />
-
                 <Button
                     android:id="@+id/catalogue_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Integ Product Catalogue" />
+
+                <Button
+                    android:id="@+id/configurator_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Product configurator" />
 
                 <Button
                     android:id="@+id/drawings_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
-                    android:text="PDF Drawings (requires internet)" />
+                    android:text="PDF Drawings / Update App (requires internet)"
+                    android:textAlignment="textStart" />
+
+                <Button
+                    android:id="@+id/mission_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Modtec Mission Vision and Values"
+                    android:textAlignment="textStart" />
+
+                <Button
+                    android:id="@+id/extrusions_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Modtec Extrusions" />
+
+                <Button
+                    android:id="@+id/warranty_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Warranty"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/refund_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Refund Policy"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/mercuryspecs_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Mercury Specifications"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/arrayspecs_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Ar-ray Specifications"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/ergonomics_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Ergonomics definitions" />
@@ -70,6 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Alan Hedge Workspace Article" />
@@ -79,6 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Website (requires internet)" />
@@ -88,18 +163,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Apollo Modularity" />
 
                 <Button
-                    android:id="@+id/configurator_button"
+                    android:id="@+id/productivity_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_menu_send"
-                    android:text="Product configurator" />
+                    android:text="Productivity Research" />
 
             </LinearLayout>
 
@@ -115,20 +192,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <GridView
-            android:id="@+id/photogallerygv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="10dp"
-            android:numColumns="auto_fit"
-            android:verticalSpacing="10dp" />
-
         <WebView
             android:id="@+id/modularitypage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+        </WebView>
+
+        <WebView
+            android:id="@+id/missionvisionvaluespage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </WebView>
+
+        <WebView
+            android:id="@+id/productivitypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </WebView>
+
+        <ScrollView
+            android:id="@+id/warranty_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/warrantypage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/refund_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/refundpage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
 
     </ViewFlipper>
 </android.support.constraint.ConstraintLayout>

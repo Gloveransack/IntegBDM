@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,12 +24,19 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,7 +58,8 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         //drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        CopyReadAssets();
+        //CopyReadAssets();
+        copyAssets("pdfs");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -66,9 +75,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
         final Button drawingsbutton = (Button) findViewById(R.id.drawings_button);
         drawingsbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                openDrawings();
-            }
+            public void onClick(View v) { openDrawings(); }
         });
 
         final Button ergonomicsbutton = (Button) findViewById(R.id.ergonomics_button);
@@ -99,37 +106,108 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
+        final Button missionbutton = (Button) findViewById(R.id.mission_button);
+        missionbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openMission();
+            }
+        });
+
+        final Button productivitybutton = (Button) findViewById(R.id.productivity_button);
+        productivitybutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openProductivity();
+            }
+        });
+
+        final Button warrantybutton = (Button) findViewById(R.id.warranty_button);
+        warrantybutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openWarranty();
+            }
+        });
+
+        final Button refundbutton = (Button) findViewById(R.id.refund_button);
+        refundbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openRefund();
+            }
+        });
+
+        final Button mercuryspecsbutton = (Button) findViewById(R.id.mercuryspecs_button);
+        mercuryspecsbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openMercuryspecs();
+            }
+        });
+
+        final Button arrayspecsbutton = (Button) findViewById(R.id.arrayspecs_button);
+        arrayspecsbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openArrayspecs();
+            }
+        });
+
+        final Button extrusionsbutton = (Button) findViewById(R.id.extrusions_button);
+        extrusionsbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openExtrusions();
+            }
+        });
+
         final Button configuratorbutton = (Button) findViewById(R.id.configurator_button);
         configuratorbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Mainmenu.this, Configurator.class);
+                Intent intent = new Intent(Mainmenu.this, Configurator_spinner.class);
                 startActivity(intent);
             }
         });
 
     }
 
-    private void CopyReadAssets()
-    {
+    private void copyAssets(String path) {
         AssetManager assetManager = getAssets();
-
-        InputStream in;
-        OutputStream out;
-        File file = new File(getFilesDir(), "catalogue.pdf");
-        try
-        {
-            in = assetManager.open("catalogue.pdf");
-            out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
-
-            copyFile(in, out);
-            in.close();
-            //in = null;
-            out.flush();
-            out.close();
-            //out = null;
-        } catch (Exception e)
-        {
-            Log.e("tag", e.getMessage());
+        String[] files = null;
+        try {
+            files = assetManager.list(path);
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
+        }
+        if (files != null) for (String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            try {
+                in = assetManager.open(path+"/"+filename);
+                File outFile = new File(getFilesDir(), filename);
+                //out = new FileOutputStream(outFile);
+                out = openFileOutput(outFile.getName(), Context.MODE_WORLD_READABLE);
+                copyFile(in, out);
+            } catch(IOException e) {
+                Log.e("tag", "Failed to copy asset file: " + filename, e);
+            }
+            finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+            }
+        }
+    }
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
         }
     }
 
@@ -186,8 +264,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.productivity) {
 
         } else if (id == R.id.workspacehw) {
-            Intent intent = new Intent(this, Configurator_spinner.class);
-            startActivity(intent);
 
         } else if (id == R.id.alan_hedge) {
             openAlanHedge();
@@ -217,24 +293,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.inventory) {
 
         } else if (id == R.id.photos) {
-            ArrayList<Bitmap> list = new ArrayList<>();
-            try{
-                String[] PathFiles = getAssets().list("Photos");
-                for (int i = 0; i < PathFiles.length; i++) {
-                    InputStream is = getAssets().open("Photos/" + PathFiles[i]);
-                    Bitmap bitmap = BitmapFactory.decodeStream(is);
-                    list.add(i, bitmap);
-                }
-            }
-            catch(IOException e)
-            {
-                e.printStackTrace();
-            }
-
-            GridView gridview = (GridView) findViewById(R.id.photogallerygv);
-            gridview.setAdapter(new ImageAdapter(this, list));
-
-            VF.setDisplayedChild(3);
 
         } else if (id == R.id.sales_professional) {
 
@@ -248,19 +306,21 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
-    private void copyFile(InputStream in, OutputStream out) throws IOException
-    {
-        byte[] buffer = new byte[1024];
-        int read;
-        while ((read = in.read(buffer)) != -1)
-        {
-            out.write(buffer, 0, read);
-        }
-    }
-
     private void openCatalogue() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/catalogue.pdf"), "application/pdf");
+        startActivity(intent);
+    }
+
+    private void openMercuryspecs() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/mercuryspecs.pdf"), "application/pdf");
+        startActivity(intent);
+    }
+
+    private void openArrayspecs() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/arrayspecs.pdf"), "application/pdf");
         startActivity(intent);
     }
 
@@ -290,7 +350,7 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         web.getSettings().setBuiltInZoomControls(true);
         web.getSettings().setDisplayZoomControls(false);
         web.loadUrl("file:///android_asset/Modularity.htm");
-        VF.setDisplayedChild(4);
+        VF.setDisplayedChild(3);
     }
 
     private void openWebsite() {
@@ -299,4 +359,40 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         startActivity(intent);
     }
 
+    private void openMission() {
+        WebView web = (WebView) findViewById(R.id.missionvisionvaluespage);
+        web.getSettings().setBuiltInZoomControls(true);
+        web.getSettings().setDisplayZoomControls(false);
+        web.getSettings().setLoadWithOverviewMode(true);
+        web.getSettings().setUseWideViewPort(true);
+        web.loadUrl("file:///android_asset/MissionVisionValues.htm");
+        VF.setDisplayedChild(4);
+    }
+
+    private void openProductivity() {
+        WebView web = (WebView) findViewById(R.id.productivitypage);
+        web.getSettings().setBuiltInZoomControls(true);
+        web.getSettings().setDisplayZoomControls(false);
+        web.loadUrl("file:///android_asset/productivity_research.htm");
+        VF.setDisplayedChild(5);
+    }
+
+    private void openWarranty() {
+        TextView warranty = (TextView) findViewById(R.id.warrantypage);
+        warranty.setText(R.string.warranty_text);
+        VF.setDisplayedChild(6);
+    }
+
+    private void openRefund() {
+        TextView refund = (TextView) findViewById(R.id.refundpage);
+        refund.setText(R.string.refund_text);
+        VF.setDisplayedChild(7);
+    }
+
+    private void openExtrusions() {
+        Intent intent = new Intent(Mainmenu.this, ExtrusionListActivity.class);
+        startActivity(intent);
+    }
+
 }
+
