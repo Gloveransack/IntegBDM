@@ -1,16 +1,9 @@
 package nz.co.modtec.integbdm;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,20 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -55,11 +37,8 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        //drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
-        //CopyReadAssets();
-        copyAssets("pdfs");
+        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -165,52 +144,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
 
     }
 
-    private void copyAssets(String path) {
-        AssetManager assetManager = getAssets();
-        String[] files = null;
-        try {
-            files = assetManager.list(path);
-        } catch (IOException e) {
-            Log.e("tag", "Failed to get asset file list.", e);
-        }
-        if (files != null) for (String filename : files) {
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-                in = assetManager.open(path+"/"+filename);
-                File outFile = new File(getFilesDir(), filename);
-                //out = new FileOutputStream(outFile);
-                out = openFileOutput(outFile.getName(), Context.MODE_WORLD_READABLE);
-                copyFile(in, out);
-            } catch(IOException e) {
-                Log.e("tag", "Failed to copy asset file: " + filename, e);
-            }
-            finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-            }
-        }
-    }
-    private void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
-        int read;
-        while((read = in.read(buffer)) != -1){
-            out.write(buffer, 0, read);
-        }
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -307,20 +240,20 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void openCatalogue() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/catalogue.pdf"), "application/pdf");
+        Intent intent = new Intent(Mainmenu.this, OpenPDF.class);
+        intent.putExtra("requestedPDF","catalogue.pdf");
         startActivity(intent);
     }
 
     private void openMercuryspecs() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/mercuryspecs.pdf"), "application/pdf");
+        Intent intent = new Intent(Mainmenu.this, OpenPDF.class);
+        intent.putExtra("requestedPDF","mercuryspecs.pdf");
         startActivity(intent);
     }
 
     private void openArrayspecs() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/arrayspecs.pdf"), "application/pdf");
+        Intent intent = new Intent(Mainmenu.this, OpenPDF.class);
+        intent.putExtra("requestedPDF","arrayspecs.pdf");
         startActivity(intent);
     }
 

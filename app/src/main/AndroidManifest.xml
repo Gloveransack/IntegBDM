@@ -50,6 +50,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="nz.co.modtec.integbdm.ExtrusionListActivity" />
         </activity>
+        <activity
+            android:name=".OpenPDF"
+            android:label="PDF"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nz.co.modtec.integbdm.Mainmenu"/>
+        </activity>
+
+        <provider
+            android:name=".FileProvider"
+            android:authorities="nz.co.modtec.integbdm"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
