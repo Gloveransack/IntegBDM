@@ -21,6 +21,7 @@
         app:layout_constraintLeft_toLeftOf="parent">
         <!--adding views to ViewFlipper-->
         <!--Starts at (0), then (1), then (2) and so on-->
+
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -41,6 +42,16 @@
                     android:layout_marginTop="20dp"
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Integ Product Catalogue" />
+
+                <Button
+                    android:id="@+id/pricelists_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Price Lists" />
 
                 <Button
                     android:id="@+id/configurator_button"
@@ -178,6 +189,26 @@
                     android:drawableLeft="@drawable/ic_menu_send"
                     android:text="Productivity Research" />
 
+                <Button
+                    android:id="@+id/trustedadvisor_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Sales training - Trusted Advisor" />
+
+                <Button
+                    android:id="@+id/importance_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_menu_send"
+                    android:text="Sales training - Modtec product priorities" />
+
             </LinearLayout>
 
         </ScrollView>
@@ -254,8 +285,43 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textSize="18sp" />
+
             </LinearLayout>
         </ScrollView>
 
+        <WebView
+            android:id="@+id/trustedadvisorpage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </WebView>
+
+        <ScrollView
+            android:id="@+id/refund_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/importancetitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/importance_title"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/importanceimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/importance" />
+            </LinearLayout>
+        </ScrollView>
     </ViewFlipper>
 </android.support.constraint.ConstraintLayout>

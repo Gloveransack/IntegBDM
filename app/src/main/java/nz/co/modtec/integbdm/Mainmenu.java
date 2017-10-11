@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-
 public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ViewFlipper VF;
@@ -37,7 +36,6 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -49,6 +47,13 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         cataloguebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openCatalogue();
+            }
+        });
+
+        final Button pricelistbutton = (Button) findViewById(R.id.pricelists_button);
+        pricelistbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openPricelist();
             }
         });
 
@@ -139,6 +144,20 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
             public void onClick(View v) {
                 Intent intent = new Intent(Mainmenu.this, Configurator_spinner.class);
                 startActivity(intent);
+            }
+        });
+
+        final Button trustedadvisorbutton = (Button) findViewById(R.id.trustedadvisor_button);
+        trustedadvisorbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openTrustedAdvisor();
+            }
+        });
+
+        final Button importancebutton = (Button) findViewById(R.id.importance_button);
+        importancebutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openImportance();
             }
         });
 
@@ -327,5 +346,21 @@ public class Mainmenu extends AppCompatActivity implements NavigationView.OnNavi
         startActivity(intent);
     }
 
+    private void openPricelist() {
+        Intent intent = new Intent(Mainmenu.this, Pricelist.class);
+        startActivity(intent);
+    }
+
+    private void openTrustedAdvisor() {
+        WebView web = (WebView) findViewById(R.id.trustedadvisorpage);
+        web.getSettings().setBuiltInZoomControls(true);
+        web.getSettings().setDisplayZoomControls(false);
+        web.loadUrl("file:///android_asset/Trusted_advisor_discussion.htm");
+        VF.setDisplayedChild(8);
+    }
+
+    private void openImportance() {
+        VF.setDisplayedChild(9);
+    }
 }
 

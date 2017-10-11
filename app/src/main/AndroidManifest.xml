@@ -23,24 +23,25 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Configurator"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Configurator_spinner"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExtrusionListActivity"
             android:label="@string/title_extrusion_list"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nz.co.modtec.integbdm.Mainmenu"/>
+                android:value="nz.co.modtec.integbdm.Mainmenu" />
         </activity>
         <activity
             android:name=".ExtrusionDetailActivity"
@@ -56,14 +57,18 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="nz.co.modtec.integbdm.Mainmenu"/>
+                android:value="nz.co.modtec.integbdm.Mainmenu" />
         </activity>
 
         <provider
             android:name=".FileProvider"
             android:authorities="nz.co.modtec.integbdm"
-            android:exported="true"/>
+            android:exported="true" />
 
+        <activity
+            android:name=".Pricelist"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+        </activity>
     </application>
 
 </manifest>
